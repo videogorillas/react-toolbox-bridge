@@ -6,6 +6,10 @@ import org.stjs.javascript.functions.Callback0;
 
 @Namespace("ReactToolbox")
 public class CardProps extends Props {
+    public CardProps(String key) {
+        super(key);
+    }
+
     /**
      * Child components, usually Card subcomponents.
      */
@@ -38,5 +42,10 @@ public class CardProps extends Props {
     public String type;
 
     public Callback0 onClick;
+
+    public CardProps setType(String type) {
+        this.type = type;
+        return this;
+    }
 
 }

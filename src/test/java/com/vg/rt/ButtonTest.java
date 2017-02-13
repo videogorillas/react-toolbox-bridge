@@ -50,42 +50,42 @@ public class ButtonTest extends Component<Props, State> {
     @Override
     public ReactElement<?> render() {
         console.log(this.props);
-        ButtonProps props1 = new ButtonProps();
+        ButtonProps props1 = new ButtonProps("a");
         props1.href = "http://github.com/javivelasco";
         props1.raised = true;
         props1.key = "b1";
 
-        ButtonProps props2 = new ButtonProps();
+        ButtonProps props2 = new ButtonProps("b");
         props2.icon = "bookmark";
         props2.label = "GA";
         props2.accent = true;
         props2.key = "b2";
 
-        ButtonProps props3 = new ButtonProps();
+        ButtonProps props3 = new ButtonProps("c");
         props3.icon = "bookmark";
         props3.label = "GAGA";
         props3.raised = true;
         props3.primary = true;
         props3.key = "b3";
 
-        props3.onClick = () -> {
+        props3.onClick = (e) -> {
             console.log(props3);
         };
 
-        ButtonProps props4 = new ButtonProps();
+        ButtonProps props4 = new ButtonProps("d");
         props4.icon = "inbox";
         props4.label = "Inbox";
         props4.flat = true;
         props4.key = "b4";
         
-        ButtonProps props5 = new ButtonProps();
+        ButtonProps props5 = new ButtonProps("e");
         props5.icon = "favorite";
         props5.accent = true;
         props5.primary = true;
         props5.key = "b5";
 
 
-        ButtonProps props6 = new ButtonProps();
+        ButtonProps props6 = new ButtonProps("f");
         props6.icon = "add";
         props6.floating = true;
         props6.accent = true;

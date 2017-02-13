@@ -1,13 +1,16 @@
 package com.vg.rt;
 
 import org.stjs.javascript.Array;
+import org.stjs.javascript.Map;
 import org.stjs.javascript.annotation.Namespace;
-import org.stjs.javascript.functions.Callback0;
 import org.stjs.javascript.functions.Callback1;
 import org.stjs.javascript.functions.Callback3;
 
 @Namespace("ReactToolbox")
-public class TableProps<M, T> extends Props {
+public class TableProps<T> extends Props {
+    public TableProps(String key) {
+        super(key);
+    }
     public boolean selectable;
     public boolean multiSelectable;
 
@@ -19,7 +22,7 @@ public class TableProps<M, T> extends Props {
      * Object describing the data model that represents each object in the
      * source.
      */
-    public M model;
+    public Map<String, Type> model;
     /**
      * Callback function that is fired when an item in a row changes. If set,
      * rows are editable.

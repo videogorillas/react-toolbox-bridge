@@ -89,7 +89,7 @@ class DatePickerTest extends React.Component {
             });
         };
 
-        ReactElement<TimePicker> tp = createElement(TimePicker.class, new TimePickerProps() {
+        ReactElement<TimePicker> tp = createElement(TimePicker.class, new TimePickerProps("a") {
             {
                 label = "Finishing time";
                 onChange = _changed;
@@ -97,7 +97,7 @@ class DatePickerTest extends React.Component {
             }
         });
 
-        ReactElement<DatePicker> dp1 = createElement(DatePicker.class, new DatePickerProps() {
+        ReactElement<DatePicker> dp1 = createElement(DatePicker.class, new DatePickerProps("b") {
             {
                 label = "Birthdate";
                 onChange = _changed;
@@ -105,7 +105,7 @@ class DatePickerTest extends React.Component {
             }
         });
 
-        ReactElement<DatePicker> dp2 = createElement(DatePicker.class, new DatePickerProps() {
+        ReactElement<DatePicker> dp2 = createElement(DatePicker.class, new DatePickerProps("c") {
             {
                 label = "Expiration date";
                 minDate = min_datetime;
@@ -114,7 +114,7 @@ class DatePickerTest extends React.Component {
             }
         });
 
-        ReactElement<DatePicker> dp3 = createElement(DatePicker.class, new DatePickerProps() {
+        ReactElement<DatePicker> dp3 = createElement(DatePicker.class, new DatePickerProps("d") {
             {
                 label = "Formatted date";
                 inputFormat = (value) -> {

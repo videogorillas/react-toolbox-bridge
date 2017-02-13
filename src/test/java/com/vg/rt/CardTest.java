@@ -55,31 +55,31 @@ const TestCards = () => (
     public ReactElement<?> render() {
         String dummyText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
 
-        ReactElement<Card> card = createElement(Card.class, new CardProps() {
+        ReactElement<Card> card = createElement(Card.class, new CardProps("a") {
             {
                 style = $map("width", "350px");
             }
-        }, createElement(CardTitle.class, new CardTitleProps() {
+        }, createElement(CardTitle.class, new CardTitleProps("b") {
             {
                 avatar = "https://placeimg.com/80/80/animals";
                 title = "Avatar style title";
                 subtitle = "Subtitle here";
             }
-        }), createElement(CardMedia.class, new CardMediaProps() {
+        }), createElement(CardMedia.class, new CardMediaProps("c") {
             {
                 aspectRatio = "wide";
                 image = "https://placeimg.com/800/450/nature";
             }
-        }), createElement(CardTitle.class, new CardTitleProps() {
+        }), createElement(CardTitle.class, new CardTitleProps("d") {
             {
                 title = "Title goes here";
                 subtitle = "Subtitle here";
             }
-        }), createElement(CardText.class, null, dummyText), createElement(CardActions.class, null, createElement(Button.class, new ButtonProps() {
+        }), createElement(CardText.class, null, dummyText), createElement(CardActions.class, null, createElement(Button.class, new ButtonProps("e") {
             {
                 label = "Left";
             }
-        }), createElement(Button.class, new ButtonProps() {
+        }), createElement(Button.class, new ButtonProps("f") {
             {
                 label = "Right";
             }

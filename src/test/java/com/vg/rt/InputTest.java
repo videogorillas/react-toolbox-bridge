@@ -62,7 +62,7 @@ return <InputTest />;
 
     @Override
     public ReactElement<?> render() {
-        ReactElement<?> section = section(null, createElement(Input.class, new InputProps() {
+        ReactElement<?> section = section(null, createElement(Input.class, new InputProps("a") {
             {
                 type = "text";
                 label = "Name";
@@ -73,13 +73,13 @@ return <InputTest />;
                 };
                 maxLength = 16.;
             }
-        }), createElement(Input.class, new InputProps() {
+        }), createElement(Input.class, new InputProps("b") {
             {
                 type = "text";
                 label = "Disabled field";
                 disabled = true;
             }
-        }), createElement(Input.class, new InputProps() {
+        }), createElement(Input.class, new InputProps("c") {
             {
                 type = "text";
                 label = "Multiline";
@@ -89,7 +89,7 @@ return <InputTest />;
                 };
                 maxLength = 16.;
             }
-        }), createElement(Input.class, new InputProps() {
+        }), createElement(Input.class, new InputProps("d") {
             {
                 type = "email";
                 label = "Email address";
@@ -99,7 +99,7 @@ return <InputTest />;
                     console.log("onChange", s);
                 };
             }
-        }), createElement(Input.class, new InputProps() {
+        }), createElement(Input.class, new InputProps("e") {
             {
                 type = "tel";
                 label = "Phone";
@@ -110,7 +110,7 @@ return <InputTest />;
                     console.log("onChange", s);
                 };
             }
-        }), createElement(Input.class, new InputProps() {
+        }), createElement(Input.class, new InputProps("f") {
             {
                 type = "text";
                 label = "Required Field";

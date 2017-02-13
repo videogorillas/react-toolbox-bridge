@@ -9,7 +9,7 @@ import org.stjs.javascript.annotation.STJSBridge;
 
 @STJSBridge
 @Namespace("ReactToolbox")
-public class BaseComponent<P> extends Component<P, State> {
+public abstract class BaseComponent<P> extends Component<P, State> {
 
     @Native
     public BaseComponent() {

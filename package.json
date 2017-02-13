@@ -1,0 +1,41 @@
+{
+  "name": "react-toolbox-bridge",
+  "version": "1.2.1-1",
+  "description": "react-toolbox stjs props",
+  "main": "react-toolbox-bridge.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/videogorillas/react-toolbox-bridge.git"
+  },
+  "keywords": [
+    "live4",
+    "api",
+    "live-streaming",
+    "video"
+  ],
+  "author": "zhukov@videogorillas.com",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/videogorillas/react-toolbox-bridge/issues"
+  },
+  "homepage": "https://github.com/videogorillas/react-toolbox-bridge#readme",
+  "dependencies": {
+    "react": "15.3.1",
+    "react-toolbox": "1.2.1"
+  },
+  "devDependencies": {
+    "grunt": "0.4.5",
+    "grunt-amd-jst": "0.0.5",
+    "grunt-cli": "0.1.13",
+    "grunt-contrib-concat": "0.5.1",
+    "grunt-contrib-cssmin": "0.14.0",
+    "grunt-contrib-sass": "0.9.2",
+    "grunt-contrib-uglify": "0.11.1",
+    "grunt-contrib-watch": "0.6.1",
+    "grunt-fontoptim": "0.1.1",
+    "grunt-webpack": "1.0.14"
+  }
+}

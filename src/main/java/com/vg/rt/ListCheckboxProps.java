@@ -6,6 +6,10 @@ import org.stjs.javascript.functions.Callback1;
 
 @Namespace("ReactToolbox")
 public class ListCheckboxProps extends Props {
+    public ListCheckboxProps(String key) {
+        super(key);
+    }
+
     /**
      * Main text of the item. Required.
      */
@@ -37,5 +41,26 @@ public class ListCheckboxProps extends Props {
     
     //Changeable<Boolean>
     public Callback1<Boolean> onChange;
+
+    public ListCheckboxProps setCaption(String caption) {
+        this.caption = caption;
+        return this;
+    }
+
+    public ListCheckboxProps setChecked(boolean checked) {
+        this.checked = checked;
+        return this;
+    }
+
+    public ListCheckboxProps setName(String name) {
+        this.name = name;
+        return this;
+    }
+    
+    public ListCheckboxProps setOnChange(Callback1<Boolean> onChange) {
+        this.onChange = onChange;
+        return this;
+    }
+    
 
 }

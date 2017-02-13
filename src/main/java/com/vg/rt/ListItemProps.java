@@ -2,13 +2,18 @@ package com.vg.rt;
 
 import org.stjs.bridge.react.internal.ReactElement;
 import org.stjs.javascript.Array;
-import org.stjs.javascript.functions.Callback0;
+import org.stjs.javascript.dom.DOMEvent;
+import org.stjs.javascript.functions.Callback1;
 
 public class ListItemProps extends Props {
+    public ListItemProps(String key) {
+        super(key);
+    }
+
     /**
      * A string URL to specify an avatar in the left side of the item.
      */
-    public String avatar;
+    public Object avatar; //string or element
     /**
      * Main text of the item. Required.
      */
@@ -36,7 +41,7 @@ public class ListItemProps extends Props {
      * A list of elements that are placed on the right side of the item and
      * after the rightIcon attribute.
      */
-    public Array<ReactElement> rightActions;
+    public Array<ReactElement<?>> rightActions;
     /**
      * The same as the leftIcon but in this case the icon is displayed in the
      * right side.
@@ -63,8 +68,58 @@ public class ListItemProps extends Props {
     public String to;
     
 
-    public Callback0 onClick;
+    public Callback1<DOMEvent> onClick;
 
     public boolean disabled;
+    
+    public ListItemProps setCaption(String caption) {
+        this.caption = caption;
+        return this;
+    }
+    
+    public ListItemProps setLegend(String legend) {
+        this.legend = legend;
+        return this;
+    }
+    
+    public ListItemProps setKey(String k) {
+        this.key = k;
+        return this;
+    }
+
+    public ListItemProps setAvatar(Object avatar) {
+        this.avatar = avatar;
+        return this;
+    }
+
+    public ListItemProps setSelectable(boolean selectable) {
+        this.selectable = selectable;
+        return this;
+    }
+
+    public ListItemProps setLeftIcon(String leftIcon) {
+        this.leftIcon = leftIcon;
+        return this;
+    }
+
+    public ListItemProps setDisabled(boolean disabled) {
+        this.disabled = disabled;
+        return this;
+    }
+    
+    public ListItemProps setOnClick(Callback1<DOMEvent> onClick) {
+        this.onClick = onClick;
+        return this;
+    }
+
+    public ListItemProps setRightIcon(String rightIcon) {
+        this.rightIcon = rightIcon;
+        return this;
+    }
+
+    public ListItemProps setRightActions(Array<ReactElement<?>> rightActions) {
+        this.rightActions = rightActions;
+        return this;
+    }
 
 }

@@ -1,5 +1,8 @@
 package com.vg.rt;
 
+import static org.stjs.javascript.JSCollections.$map;
+
+import org.stjs.javascript.Map;
 import org.stjs.javascript.annotation.Namespace;
 
 @Namespace("ReactToolbox")
@@ -10,13 +13,37 @@ public class Props {
     public String className;
     public String id;
     /**
+     * @param id the id to set
+     * @return 
+     */
+    public <T extends Props> T setId(String id) {
+        this.id = id;
+        return (T) this;
+    }
+
+    /**
      * A key used to uniquely identify the element within an Array
      */
     public String key;
+    public String ref;
+
     /**
      * Inline style
      */
-    public Object style;
+    public Map<String,Object> style;
+
+    public <T extends Props> T setStyle(Map<String, Object> style) {
+        this.style = style;
+        return (T) this;
+    }
+
+    public <T extends Props> T setPadding(String padding) {
+        Map<String, Object> css = this.style == null ? $map() : this.style;
+        css.$put("padding", padding);
+        setStyle(css);
+        return (T) this;
+    }
+
     /**
      * Tooltip text APPLIES ONLY IF THE COMPONENT IS WRAPPED WITH Tooltip.
      * 
@@ -38,4 +65,24 @@ public class Props {
      * @see http://react-toolbox.com/#/components/tooltip
      */
     public boolean tooltipHideOnClick;
+
+    public Props(String key) {
+        this.key = key;
+        this.id = key;
+    }
+
+    public <T extends Props> T setRef(String ref) {
+        this.ref = ref;
+        return (T) this;
+    }
+
+    public <T extends Props> T setClassName(String className) {
+        this.className = className;
+        return (T) this;
+    }
+
+    public <T> T toPlainObject() {
+        return (T) Internal.assign(Object.class, $map(), this);
+    }
+
 }

@@ -85,7 +85,7 @@ public class ListTest extends Component<Props, ListTest.ListTestState> {
     @Override
     public ReactElement<?> render() {
         Array<Option<?>> roles = $array(opt("Pilot", "pilot"), opt("Observer", "observer"), opt("Participant", "participant"));
-        ReactElement<Dropdown> dropdown = createElement(Dropdown.class, new DropdownProps() {
+        ReactElement<Dropdown> dropdown = createElement(Dropdown.class, new DropdownProps("a") {
             {
                 auto = true;
                 source = roles;
@@ -94,16 +94,16 @@ public class ListTest extends Component<Props, ListTest.ListTestState> {
             }
         });
 
-        ReactElement<List> createElement = createElement(List.class, new ListProps() {
+        ReactElement<List> createElement = createElement(List.class, new ListProps("b") {
             {
                 ripple = true;
                 selectable = true;
             }
-        }, createElement(ListSubHeader.class, new ListSubHeaderProps() {
+        }, createElement(ListSubHeader.class, new ListSubHeaderProps("c") {
             {
                 caption = "Explore characters";
             }
-        }), createElement(ListItem.class, new ListItemProps() {
+        }), createElement(ListItem.class, new ListItemProps("d") {
             {
                 avatar = "https://dl.dropboxusercontent.com/u/2247264/assets/m.jpg";
                 caption = "Dr. Manhattan";
@@ -111,38 +111,38 @@ public class ListTest extends Component<Props, ListTest.ListTestState> {
 //                rightIcon = "star";
                 rightActions = $array(dropdown);
             }
-        }), createElement(ListItem.class, new ListItemProps() {
+        }), createElement(ListItem.class, new ListItemProps("e") {
             {
                 avatar = "https://dl.dropboxusercontent.com/u/2247264/assets/o.jpg";
                 caption = "Ozymandias";
                 legend = "Adrian Veidt";
                 rightIcon = "star";
             }
-        }), createElement(ListItem.class, new ListItemProps() {
+        }), createElement(ListItem.class, new ListItemProps("f") {
             {
                 avatar = "https://dl.dropboxusercontent.com/u/2247264/assets/r.jpg";
                 caption = "Rorschach";
                 legend = "Walter Joseph Kovacs";
                 rightIcon = "star";
             }
-        }), createElement(ListSubHeader.class, new ListSubHeaderProps() {
+        }), createElement(ListSubHeader.class, new ListSubHeaderProps("g") {
             {
                 caption = "Configuration";
             }
-        }), createElement(ListCheckbox.class, new ListCheckboxProps() {
+        }), createElement(ListCheckbox.class, new ListCheckboxProps("h") {
             {
                 caption = "Notify new comics";
                 checked = state.checkbox;
                 legend = "You will receive a notification when a new one is published";
                 onChange = s -> handleCheckboxChange(s);
             }
-        }), createElement(ListDivider.class, null), createElement(ListItem.class, new ListItemProps() {
+        }), createElement(ListDivider.class, null), createElement(ListItem.class, new ListItemProps("i") {
             {
                 caption = "Contact the publisher";
                 leftIcon = "send";
 
             }
-        }), createElement(ListItem.class, new ListItemProps() {
+        }), createElement(ListItem.class, new ListItemProps("j") {
             {
                 caption = "Remove this publication";
                 leftIcon = "delete";
