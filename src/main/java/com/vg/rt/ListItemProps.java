@@ -27,16 +27,15 @@ public class ListItemProps extends Props {
      * A list of elements that are placed on the left side of the item and after
      * the avatar attribute.
      */
-    public Array<ReactElement> leftActions;
+    public Array<ReactElement<?>> leftActions;
     /**
-     * A string key of a font icon to display an icon in the left side of the
-     * item.
+     * A string key of a font icon or element to display an icon in the left side of the item.
      */
-    public String leftIcon;
+    public Object leftIcon;
     /**
      * Secondary text to display under the caption.
      */
-    public String legend;
+    public Object legend;
     /**
      * A list of elements that are placed on the right side of the item and
      * after the rightIcon attribute.
@@ -77,7 +76,7 @@ public class ListItemProps extends Props {
         return this;
     }
     
-    public ListItemProps setLegend(String legend) {
+    public ListItemProps setLegend(Object legend) {
         this.legend = legend;
         return this;
     }
@@ -97,7 +96,7 @@ public class ListItemProps extends Props {
         return this;
     }
 
-    public ListItemProps setLeftIcon(String leftIcon) {
+    public ListItemProps setLeftIcon(Object leftIcon) {
         this.leftIcon = leftIcon;
         return this;
     }
@@ -119,6 +118,11 @@ public class ListItemProps extends Props {
 
     public ListItemProps setRightActions(Array<ReactElement<?>> rightActions) {
         this.rightActions = rightActions;
+        return this;
+    }
+
+    public ListItemProps setLeftActions(Array<ReactElement<?>> leftActions) {
+        this.leftActions = leftActions;
         return this;
     }
 
