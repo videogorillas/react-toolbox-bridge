@@ -3,7 +3,7 @@ package com.vg.rt;
 import org.stjs.javascript.annotation.Namespace;
 import org.stjs.javascript.annotation.Native;
 
-@Namespace("ReactToolbox")
+@Namespace("ReactToolboxProps")
 public class Option<T> {
     public String label;
     public T value;
