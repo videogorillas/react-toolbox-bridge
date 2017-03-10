@@ -1073,15 +1073,15 @@ ReactToolboxProps.Props = stjs.extend(ReactToolboxProps.Props, null, [], functio
         return (Object).assign({}, this);
     };
 }, {style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.Type = function(type) {
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.Type = function(type) {
     this.type = type;
 };
-ReactToolbox.Type = stjs.extend(ReactToolbox.Type, null, [], function(constructor, prototype) {
+ReactToolboxProps.Type = stjs.extend(ReactToolboxProps.Type, null, [], function(constructor, prototype) {
     prototype.type = null;
     prototype.title = null;
     constructor.typeWithTitle = function(type, title) {
-        var t = new ReactToolbox.Type(type);
+        var t = new ReactToolboxProps.Type(type);
         t.title = title;
         return t;
     };
