@@ -1086,19 +1086,19 @@ ReactToolboxProps.Type = stjs.extend(ReactToolboxProps.Type, null, [], function(
         return t;
     };
 }, {type: "Class"}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.Option = function(label, value) {
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.Option = function(label, value) {
     this.label = label;
     this.value = value;
 };
-ReactToolbox.Option = stjs.extend(ReactToolbox.Option, null, [], function(constructor, prototype) {
+ReactToolboxProps.Option = stjs.extend(ReactToolboxProps.Option, null, [], function(constructor, prototype) {
     prototype.label = null;
     prototype.value = null;
     constructor.opt = function(label, value) {
         if (value == null) {
             value = label;
         }
-        return new ReactToolbox.Option(label, value);
+        return new ReactToolboxProps.Option(label, value);
     };
 }, {}, {});
 stjs.ns("ReactToolboxProps");
