@@ -831,9 +831,13 @@ stjs.typefy=function(obj, cls){
 			  continue;
 		  }
 		  if (typeof prop == "string")
-			  ret[key] = convert(td, prop);
-		  else if (typeof prop == "object")
-			  ret[key] = stjs.typefy(prop, td);
+			ret[key] = convert(td, prop);
+		  else if (typeof prop == "object") {
+				if (typeof td == "string") {
+					td = eval(td);
+		  		}
+				ret[key] = stjs.typefy(prop, td);
+			}
 	  }
 	  return ret;
 };
@@ -996,14 +1000,14 @@ stjs.getField=function(obj, field){
 };
 
 
-var ReactToolbox = {};
+var ReactToolboxProps = {};
 
-stjs.ns("ReactToolbox");
-ReactToolbox.Props = function(key) {
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.Props = function(key) {
     this.key = key;
     this.id = key;
 };
-ReactToolbox.Props = stjs.extend(ReactToolbox.Props, null, [], function(constructor, prototype) {
+ReactToolboxProps.Props = stjs.extend(ReactToolboxProps.Props, null, [], function(constructor, prototype) {
     /**
      *  Sets a CSS class on the component.
      */
@@ -1097,11 +1101,11 @@ ReactToolbox.Option = stjs.extend(ReactToolbox.Option, null, [], function(constr
         return new ReactToolbox.Option(label, value);
     };
 }, {}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.ProgressBarProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.ProgressBarProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.ProgressBarProps = stjs.extend(ReactToolbox.ProgressBarProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.ProgressBarProps = stjs.extend(ReactToolboxProps.ProgressBarProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     /**
      * Value of a secondary progress bar useful for buffering. 
      */
@@ -1143,9 +1147,9 @@ ReactToolbox.ProgressBarProps = stjs.extend(ReactToolbox.ProgressBarProps, React
 }, {buffer: "Number", max: "Number", min: "Number", value: "Number", style: {name: "Map", arguments: [null, "Object"]}}, {});
 stjs.ns("ReactToolbox");
 ReactToolbox.ListProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.ListProps = stjs.extend(ReactToolbox.ListProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolbox.ListProps = stjs.extend(ReactToolbox.ListProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     /**
      *  If true, each element in the list will have a ripple effect on click
      *  
@@ -1168,11 +1172,11 @@ ReactToolbox.ListProps = stjs.extend(ReactToolbox.ListProps, ReactToolbox.Props,
         return this;
     };
 }, {style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.TimePickerProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.TimePickerProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.TimePickerProps = stjs.extend(ReactToolbox.TimePickerProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.TimePickerProps = stjs.extend(ReactToolboxProps.TimePickerProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     prototype.label = null;
     /**
      *  Format to display the clock. It can be 24hr or ampm.
@@ -1207,11 +1211,11 @@ ReactToolbox.TimePickerProps = stjs.extend(ReactToolbox.TimePickerProps, ReactTo
         return this;
     };
 }, {value: "Date", onChange: {name: "Callback1", arguments: ["Date"]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.TableProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.TableProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.TableProps = stjs.extend(ReactToolbox.TableProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.TableProps = stjs.extend(ReactToolboxProps.TableProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     prototype.selectable = false;
     prototype.multiSelectable = false;
     /**
@@ -1242,10 +1246,11 @@ ReactToolbox.TableProps = stjs.extend(ReactToolbox.TableProps, ReactToolbox.Prop
      */
     prototype.source = null;
 }, {model: {name: "Map", arguments: [null, "ReactToolbox.Type"]}, onChange: {name: "Callback3", arguments: [null, null, "Object"]}, onSelect: {name: "Callback1", arguments: [{name: "Array", arguments: [null]}]}, selected: {name: "Array", arguments: [null]}, source: {name: "Array", arguments: ["T"]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
-var CheckboxProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.CheckboxProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-CheckboxProps = stjs.extend(CheckboxProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.CheckboxProps = stjs.extend(ReactToolboxProps.CheckboxProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     prototype.checked = false;
     prototype.disabled = false;
     prototype.label = null;
@@ -1282,11 +1287,11 @@ CheckboxProps = stjs.extend(CheckboxProps, ReactToolbox.Props, [], function(cons
         return this;
     };
 }, {onBlur: "Callback0", onChange: {name: "Callback1", arguments: [null]}, onFocus: "Callback0", style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.SnackbarProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.SnackbarProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.SnackbarProps = stjs.extend(ReactToolbox.SnackbarProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.SnackbarProps = stjs.extend(ReactToolboxProps.SnackbarProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     prototype.action = null;
     prototype.active = null;
     prototype.className = null;
@@ -1301,11 +1306,11 @@ ReactToolbox.SnackbarProps = stjs.extend(ReactToolbox.SnackbarProps, ReactToolbo
         return this;
     };
 }, {icon: "Object", onClick: {name: "Callback1", arguments: ["DOMEvent"]}, onTimeout: "Callback0", style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.AppBarProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.AppBarProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.AppBarProps = stjs.extend(ReactToolbox.AppBarProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.AppBarProps = stjs.extend(ReactToolboxProps.AppBarProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     /**
      *  Set a class for the root component.
      * 
@@ -1333,11 +1338,11 @@ ReactToolbox.AppBarProps = stjs.extend(ReactToolbox.AppBarProps, ReactToolbox.Pr
         return this;
     };
 }, {style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.SidebarProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.SidebarProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.SidebarProps = stjs.extend(ReactToolbox.SidebarProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.SidebarProps = stjs.extend(ReactToolboxProps.SidebarProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     /**
      *  Set a class for the root component.
      * 
@@ -1364,11 +1369,11 @@ ReactToolbox.SidebarProps = stjs.extend(ReactToolbox.SidebarProps, ReactToolbox.
         return this;
     };
 }, {style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.ListSubHeaderProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.ListSubHeaderProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.ListSubHeaderProps = stjs.extend(ReactToolbox.ListSubHeaderProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.ListSubHeaderProps = stjs.extend(ReactToolboxProps.ListSubHeaderProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     prototype.caption = null;
     prototype.setCaption = function(caption) {
         this.caption = caption;
@@ -1379,11 +1384,11 @@ ReactToolbox.ListSubHeaderProps = stjs.extend(ReactToolbox.ListSubHeaderProps, R
         return this;
     };
 }, {style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.MenuItemProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.MenuItemProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.MenuItemProps = stjs.extend(ReactToolbox.MenuItemProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.MenuItemProps = stjs.extend(ReactToolboxProps.MenuItemProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     prototype.caption = null;
     prototype.disabled = null;
     prototype.onClick = null;
@@ -1412,11 +1417,11 @@ ReactToolbox.MenuItemProps = stjs.extend(ReactToolbox.MenuItemProps, ReactToolbo
         return this;
     };
 }, {onClick: {name: "Callback1", arguments: ["DOMEvent"]}, icon: "Object", style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.IconMenuProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.IconMenuProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.IconMenuProps = stjs.extend(ReactToolbox.IconMenuProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.IconMenuProps = stjs.extend(ReactToolboxProps.IconMenuProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     prototype.icon = null;
     prototype.iconRipple = null;
     prototype.menuRipple = null;
@@ -1440,11 +1445,11 @@ ReactToolbox.IconMenuProps = stjs.extend(ReactToolbox.IconMenuProps, ReactToolbo
         return this;
     };
 }, {icon: "Object", onClick: {name: "Callback1", arguments: ["DOMEvent"]}, onHide: {name: "Callback1", arguments: ["DOMEvent"]}, onSelect: {name: "Callback1", arguments: ["DOMEvent"]}, onShow: {name: "Callback1", arguments: ["DOMEvent"]}, selected: "Object", style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.InputProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.InputProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.InputProps = stjs.extend(ReactToolbox.InputProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.InputProps = stjs.extend(ReactToolboxProps.InputProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     prototype.hint = null;
     prototype.name = null;
     /**
@@ -1565,11 +1570,11 @@ ReactToolbox.InputProps = stjs.extend(ReactToolbox.InputProps, ReactToolbox.Prop
     };
     prototype.placeholder = null;
 }, {onBlur: {name: "Callback1", arguments: ["DOMEvent"]}, onFocus: {name: "Callback1", arguments: ["DOMEvent"]}, onKeyDown: {name: "Callback1", arguments: ["DOMEvent"]}, onKeyPress: {name: "Callback1", arguments: ["DOMEvent"]}, onKeyUp: {name: "Callback1", arguments: ["DOMEvent"]}, onInput: {name: "Callback1", arguments: ["DOMEvent"]}, icon: "Object", onChange: {name: "Callback1", arguments: [null]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.CardProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.CardProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.CardProps = stjs.extend(ReactToolbox.CardProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.CardProps = stjs.extend(ReactToolboxProps.CardProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     /**
      *  Child components, usually Card subcomponents.
      */
@@ -1604,12 +1609,12 @@ ReactToolbox.CardProps = stjs.extend(ReactToolbox.CardProps, ReactToolbox.Props,
         this.type = type;
         return this;
     };
-}, {children: "Object", actions: {name: "Array", arguments: ["ReactToolbox.ButtonProps"]}, onClick: "Callback0", style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.ListCheckboxProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+}, {children: "Object", actions: {name: "Array", arguments: ["ReactToolboxProps.ButtonProps"]}, onClick: "Callback0", style: {name: "Map", arguments: [null, "Object"]}}, {});
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.ListCheckboxProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.ListCheckboxProps = stjs.extend(ReactToolbox.ListCheckboxProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.ListCheckboxProps = stjs.extend(ReactToolboxProps.ListCheckboxProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     /**
      *  Main text of the item. Required.
      */
@@ -1654,10 +1659,11 @@ ReactToolbox.ListCheckboxProps = stjs.extend(ReactToolbox.ListCheckboxProps, Rea
         return this;
     };
 }, {onBlur: "Callback0", onFocus: "Callback0", onChange: {name: "Callback1", arguments: [null]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
-var ListItemProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.ListItemProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ListItemProps = stjs.extend(ListItemProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.ListItemProps = stjs.extend(ReactToolboxProps.ListItemProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     /**
      *  A string URL to specify an avatar in the left side of the item.
      */
@@ -1760,11 +1766,11 @@ ListItemProps = stjs.extend(ListItemProps, ReactToolbox.Props, [], function(cons
         return this;
     };
 }, {avatar: "Object", itemContent: "ReactElement", leftActions: {name: "Array", arguments: [{name: "ReactElement", arguments: ["Object"]}]}, leftIcon: "Object", legend: "Object", rightActions: {name: "Array", arguments: [{name: "ReactElement", arguments: ["Object"]}]}, onClick: {name: "Callback1", arguments: ["DOMEvent"]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.DatePickerProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.DatePickerProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.DatePickerProps = stjs.extend(ReactToolbox.DatePickerProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.DatePickerProps = stjs.extend(ReactToolboxProps.DatePickerProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     prototype.label = null;
     /**
      *  Date object with the maximum selectable date.
@@ -1813,21 +1819,21 @@ ReactToolbox.DatePickerProps = stjs.extend(ReactToolbox.DatePickerProps, ReactTo
         return this;
     };
 }, {maxDate: "Date", minDate: "Date", value: "Date", onChange: {name: "Callback1", arguments: ["Date"]}, inputFormat: {name: "Function1", arguments: ["Date", null]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.LayoutProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.LayoutProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.LayoutProps = stjs.extend(ReactToolbox.LayoutProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.LayoutProps = stjs.extend(ReactToolboxProps.LayoutProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     /**
      *  Additional class(es) for custom styling.
      */
     prototype.className = null;
 }, {style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.NavDrawerProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.NavDrawerProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.NavDrawerProps = stjs.extend(ReactToolbox.NavDrawerProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.NavDrawerProps = stjs.extend(ReactToolboxProps.NavDrawerProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     /**
      *  Set a class for the root component.
      * 
@@ -1864,9 +1870,9 @@ ReactToolbox.NavDrawerProps = stjs.extend(ReactToolbox.NavDrawerProps, ReactTool
 }, {onOverlayClick: {name: "Callback1", arguments: ["DOMEvent"]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
 stjs.ns("ReactToolbox");
 ReactToolbox.MenuProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.MenuProps = stjs.extend(ReactToolbox.MenuProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolbox.MenuProps = stjs.extend(ReactToolbox.MenuProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     prototype.active = null;
     prototype.onHide = null;
     prototype.onSelect = null;
@@ -1877,18 +1883,18 @@ ReactToolbox.MenuProps = stjs.extend(ReactToolbox.MenuProps, ReactToolbox.Props,
     prototype.selectable = null;
     prototype.selected = null;
 }, {onHide: {name: "Callback1", arguments: ["DOMEvent"]}, onSelect: {name: "Callback1", arguments: ["DOMEvent"]}, onShow: {name: "Callback1", arguments: ["DOMEvent"]}, selected: "Object", style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.CardTextProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.CardTextProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.CardTextProps = stjs.extend(ReactToolbox.CardTextProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.CardTextProps = stjs.extend(ReactToolboxProps.CardTextProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     prototype.children = null;
 }, {children: "Object", style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.FontIconProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.FontIconProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.FontIconProps = stjs.extend(ReactToolbox.FontIconProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.FontIconProps = stjs.extend(ReactToolboxProps.FontIconProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     /**
      *  The key string for the icon you want be displayed.
      */
@@ -1911,11 +1917,11 @@ ReactToolbox.FontIconProps = stjs.extend(ReactToolbox.FontIconProps, ReactToolbo
         return this;
     };
 }, {onClick: {name: "Callback1", arguments: ["DOMEvent"]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.CardTitleProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.CardTitleProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.CardTitleProps = stjs.extend(ReactToolbox.CardTitleProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.CardTitleProps = stjs.extend(ReactToolboxProps.CardTitleProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     prototype.avatar = null;
     /**
      *  Children to pass through the component.
@@ -1946,22 +1952,22 @@ ReactToolbox.CardTitleProps = stjs.extend(ReactToolbox.CardTitleProps, ReactTool
         return this;
     };
 }, {avatar: "Object", children: "Object", title: "Object", style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.ListDividerProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.ListDividerProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.ListDividerProps = stjs.extend(ReactToolbox.ListDividerProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.ListDividerProps = stjs.extend(ReactToolboxProps.ListDividerProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     /**
      *  Indicates if the divider should be full width or should leave a space on
      *  the left side.
      */
     prototype.inset = false;
 }, {style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.CardMediaProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.CardMediaProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.CardMediaProps = stjs.extend(ReactToolbox.CardMediaProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.CardMediaProps = stjs.extend(ReactToolboxProps.CardMediaProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     /**
      *  Forces a ('wide' 16:9) or ('square' 1:1) aspect ratio respectively.
      *  Unset, the media area will have a flexible height.
@@ -1999,11 +2005,11 @@ ReactToolbox.CardMediaProps = stjs.extend(ReactToolbox.CardMediaProps, ReactTool
         return this;
     };
 }, {children: "Object", image: "Object", onClick: {name: "Callback1", arguments: ["DOMEvent"]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.AutocompleteProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.AutocompleteProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.AutocompleteProps = stjs.extend(ReactToolbox.AutocompleteProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.AutocompleteProps = stjs.extend(ReactToolboxProps.AutocompleteProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     /**
      *  Sets the error string for the internal input element.
      */
@@ -2077,11 +2083,11 @@ ReactToolbox.AutocompleteProps = stjs.extend(ReactToolbox.AutocompleteProps, Rea
         return this;
     };
 }, {source: "Object", value: "Object", onChange: "Callback1", onKeyPress: "Callback1", style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.DropdownProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.DropdownProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.DropdownProps = stjs.extend(ReactToolbox.DropdownProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.DropdownProps = stjs.extend(ReactToolboxProps.DropdownProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     prototype.error = null;
     /**
      *  If true, the dropdown will open up or down depending on the position in
@@ -2135,11 +2141,11 @@ ReactToolbox.DropdownProps = stjs.extend(ReactToolbox.DropdownProps, ReactToolbo
         return this;
     };
 }, {source: {name: "Array", arguments: [{name: "ReactToolbox.Option", arguments: ["Object"]}]}, template: {name: "Function0", arguments: [null]}, onChange: {name: "Callback1", arguments: [null]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.NavigationProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.NavigationProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.NavigationProps = stjs.extend(ReactToolbox.NavigationProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.NavigationProps = stjs.extend(ReactToolboxProps.NavigationProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     constructor.HORIZONTAL = "horizontal";
     constructor.VERTICAL = "vertical";
     /**
@@ -2162,12 +2168,12 @@ ReactToolbox.NavigationProps = stjs.extend(ReactToolbox.NavigationProps, ReactTo
         this.type = type;
         return this;
     };
-}, {actions: {name: "Array", arguments: ["ReactToolbox.ButtonProps"]}, routes: {name: "Array", arguments: ["ReactToolbox.LinkProps"]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.DialogProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+}, {actions: {name: "Array", arguments: ["ReactToolboxProps.ButtonProps"]}, routes: {name: "Array", arguments: ["ReactToolboxProps.LinkProps"]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.DialogProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.DialogProps = stjs.extend(ReactToolbox.DialogProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.DialogProps = stjs.extend(ReactToolboxProps.DialogProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     /**
      *  A array of objects representing the buttons for the dialog navigation
      *  area. The properties will be transferred to the buttons.
@@ -2250,12 +2256,12 @@ ReactToolbox.DialogProps = stjs.extend(ReactToolbox.DialogProps, ReactToolbox.Pr
         this.type = type;
         return this;
     };
-}, {actions: {name: "Array", arguments: ["ReactToolbox.ButtonProps"]}, onEscKeyDown: {name: "Callback1", arguments: ["DOMEvent"]}, onOverlayClick: {name: "Callback1", arguments: ["DOMEvent"]}, onOverlayMouseDown: {name: "Callback1", arguments: ["DOMEvent"]}, onOverlayMouseMove: {name: "Callback1", arguments: ["DOMEvent"]}, onOverlayMouseUp: {name: "Callback1", arguments: ["DOMEvent"]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.ButtonProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+}, {actions: {name: "Array", arguments: ["ReactToolboxProps.ButtonProps"]}, onEscKeyDown: {name: "Callback1", arguments: ["DOMEvent"]}, onOverlayClick: {name: "Callback1", arguments: ["DOMEvent"]}, onOverlayMouseDown: {name: "Callback1", arguments: ["DOMEvent"]}, onOverlayMouseMove: {name: "Callback1", arguments: ["DOMEvent"]}, onOverlayMouseUp: {name: "Callback1", arguments: ["DOMEvent"]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.ButtonProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.ButtonProps = stjs.extend(ReactToolbox.ButtonProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.ButtonProps = stjs.extend(ReactToolboxProps.ButtonProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     /**
      *  Indicates if the button should have accent color.
      *  
@@ -2372,18 +2378,18 @@ ReactToolbox.ButtonProps = stjs.extend(ReactToolbox.ButtonProps, ReactToolbox.Pr
         return this;
     };
 }, {onClick: {name: "Callback1", arguments: ["DOMEvent"]}, icon: "Object", style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.CardActionsProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.CardActionsProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.CardActionsProps = stjs.extend(ReactToolbox.CardActionsProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.CardActionsProps = stjs.extend(ReactToolboxProps.CardActionsProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     prototype.children = null;
 }, {children: "Object", style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.AvatarProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.AvatarProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.AvatarProps = stjs.extend(ReactToolbox.AvatarProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.AvatarProps = stjs.extend(ReactToolboxProps.AvatarProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     prototype.className = null;
     prototype.cover = null;
     prototype.icon = null;
@@ -2407,11 +2413,11 @@ ReactToolbox.AvatarProps = stjs.extend(ReactToolbox.AvatarProps, ReactToolbox.Pr
         return this;
     };
 }, {icon: "Object", image: "Object", theme: "Object", style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.LinkProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.LinkProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.LinkProps = stjs.extend(ReactToolbox.LinkProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.LinkProps = stjs.extend(ReactToolboxProps.LinkProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     /**
      *  If {@code true}, adds active style to link.
      * 
@@ -2455,11 +2461,11 @@ ReactToolbox.LinkProps = stjs.extend(ReactToolbox.LinkProps, ReactToolbox.Props,
         return this;
     };
 }, {onClick: {name: "Callback1", arguments: ["DOMEvent"]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.PanelProps = function(key) {
-    ReactToolbox.Props.call(this, key);
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.PanelProps = function(key) {
+    ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.PanelProps = stjs.extend(ReactToolbox.PanelProps, ReactToolbox.Props, [], function(constructor, prototype) {
+ReactToolboxProps.PanelProps = stjs.extend(ReactToolboxProps.PanelProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     /**
      *  Set a class for the root component.
      * 
@@ -2477,5 +2483,5 @@ ReactToolbox.PanelProps = stjs.extend(ReactToolbox.PanelProps, ReactToolbox.Prop
 }, {style: {name: "Map", arguments: [null, "Object"]}}, {});
 //# sourceMappingURL=react-toolbox-bridge.map
 
-module.exports = ReactToolbox;
+module.exports = ReactToolboxProps;
 
