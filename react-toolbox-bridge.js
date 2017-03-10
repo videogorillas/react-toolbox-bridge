@@ -1677,8 +1677,7 @@ ListItemProps = stjs.extend(ListItemProps, ReactToolbox.Props, [], function(cons
      */
     prototype.leftActions = null;
     /**
-     *  A string key of a font icon to display an icon in the left side of the
-     *  item.
+     *  A string key of a font icon or element to display an icon in the left side of the item.
      */
     prototype.leftIcon = null;
     /**
@@ -1756,7 +1755,11 @@ ListItemProps = stjs.extend(ListItemProps, ReactToolbox.Props, [], function(cons
         this.rightActions = rightActions;
         return this;
     };
-}, {avatar: "Object", itemContent: "ReactElement", leftActions: {name: "Array", arguments: ["ReactElement"]}, rightActions: {name: "Array", arguments: [{name: "ReactElement", arguments: ["Object"]}]}, onClick: {name: "Callback1", arguments: ["DOMEvent"]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
+    prototype.setLeftActions = function(leftActions) {
+        this.leftActions = leftActions;
+        return this;
+    };
+}, {avatar: "Object", itemContent: "ReactElement", leftActions: {name: "Array", arguments: [{name: "ReactElement", arguments: ["Object"]}]}, leftIcon: "Object", legend: "Object", rightActions: {name: "Array", arguments: [{name: "ReactElement", arguments: ["Object"]}]}, onClick: {name: "Callback1", arguments: ["DOMEvent"]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
 stjs.ns("ReactToolbox");
 ReactToolbox.DatePickerProps = function(key) {
     ReactToolbox.Props.call(this, key);

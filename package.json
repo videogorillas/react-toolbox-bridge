@@ -11,10 +11,7 @@
     "url": "git+https://github.com/videogorillas/react-toolbox-bridge.git"
   },
   "keywords": [
-    "live4",
-    "api",
-    "live-streaming",
-    "video"
+    "react", "material", "stjs"
   ],
   "author": "zhukov@videogorillas.com",
   "license": "Apache-2.0",
