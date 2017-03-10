@@ -5,7 +5,7 @@ import org.stjs.javascript.dom.DOMEvent;
 import org.stjs.javascript.functions.Callback0;
 import org.stjs.javascript.functions.Callback1;
 
-@Namespace("ReactToolbox")
+@Namespace("ReactToolboxProps")
 public class SnackbarProps extends Props {
     public SnackbarProps(String key) {
         super(key);

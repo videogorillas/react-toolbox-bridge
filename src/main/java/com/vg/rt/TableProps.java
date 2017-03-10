@@ -6,7 +6,7 @@ import org.stjs.javascript.annotation.Namespace;
 import org.stjs.javascript.functions.Callback1;
 import org.stjs.javascript.functions.Callback3;
 
-@Namespace("ReactToolbox")
+@Namespace("ReactToolboxProps")
 public class TableProps<T> extends Props {
     public TableProps(String key) {
         super(key);

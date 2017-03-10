@@ -5,7 +5,7 @@ import org.stjs.javascript.annotation.Namespace;
 import org.stjs.javascript.functions.Callback1;
 import org.stjs.javascript.functions.Function1;
 
-@Namespace("ReactToolbox")
+@Namespace("ReactToolboxProps")
 public class DatePickerProps extends Props {
     public DatePickerProps(String key) {
         super(key);

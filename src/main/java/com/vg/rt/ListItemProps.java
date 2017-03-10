@@ -2,9 +2,11 @@ package com.vg.rt;
 
 import org.stjs.bridge.react.internal.ReactElement;
 import org.stjs.javascript.Array;
+import org.stjs.javascript.annotation.Namespace;
 import org.stjs.javascript.dom.DOMEvent;
 import org.stjs.javascript.functions.Callback1;
 
+@Namespace("ReactToolboxProps")
 public class ListItemProps extends Props {
     public ListItemProps(String key) {
         super(key);

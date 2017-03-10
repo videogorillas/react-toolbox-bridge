@@ -2,7 +2,7 @@ package com.vg.rt;
 
 import org.stjs.javascript.annotation.Namespace;
 
-@Namespace("ReactToolbox")
+@Namespace("ReactToolboxProps")
 public class CardTextProps extends Props {
     public CardTextProps(String key) {
         super(key);

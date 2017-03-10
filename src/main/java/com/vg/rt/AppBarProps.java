@@ -2,7 +2,7 @@ package com.vg.rt;
 
 import org.stjs.javascript.annotation.Namespace;
 
-@Namespace("ReactToolbox")
+@Namespace("ReactToolboxProps")
 public class AppBarProps extends Props {
 
     public AppBarProps(String key) {

@@ -3,7 +3,7 @@ package com.vg.rt;
 import org.stjs.javascript.Array;
 import org.stjs.javascript.annotation.Namespace;
 
-@Namespace("ReactToolbox")
+@Namespace("ReactToolboxProps")
 public class NavigationProps extends Props {
 
     public static final String HORIZONTAL = "horizontal";

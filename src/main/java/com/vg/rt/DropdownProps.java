@@ -5,7 +5,7 @@ import org.stjs.javascript.annotation.Namespace;
 import org.stjs.javascript.functions.Callback1;
 import org.stjs.javascript.functions.Function0;
 
-@Namespace("ReactToolbox")
+@Namespace("ReactToolboxProps")
 public class DropdownProps extends Props {
 
     private String error;

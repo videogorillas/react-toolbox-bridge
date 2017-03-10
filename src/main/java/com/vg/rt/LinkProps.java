@@ -4,7 +4,7 @@ import org.stjs.javascript.annotation.Namespace;
 import org.stjs.javascript.dom.DOMEvent;
 import org.stjs.javascript.functions.Callback1;
 
-@Namespace("ReactToolbox")
+@Namespace("ReactToolboxProps")
 public class LinkProps extends Props {
 
     /**

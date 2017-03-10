@@ -2,7 +2,7 @@ package com.vg.rt;
 
 import org.stjs.javascript.annotation.Namespace;
 
-@Namespace("ReactToolbox")
+@Namespace("ReactToolboxProps")
 public class ListSubHeaderProps extends Props {
     public ListSubHeaderProps(String key) {
         super(key);

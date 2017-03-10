@@ -5,7 +5,7 @@ import static org.stjs.javascript.JSCollections.$map;
 import org.stjs.javascript.Map;
 import org.stjs.javascript.annotation.Namespace;
 
-@Namespace("ReactToolbox")
+@Namespace("ReactToolboxProps")
 public class Props {
     /**
      * Sets a CSS class on the component.

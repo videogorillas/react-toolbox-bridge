@@ -1,1 +1,1 @@
-var ReactToolbox = {};
+var ReactToolboxProps = {};

@@ -1,2 +1,2 @@
-module.exports = ReactToolbox;
+module.exports = ReactToolboxProps;
 

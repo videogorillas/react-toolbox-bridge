@@ -4,7 +4,7 @@ import org.stjs.javascript.annotation.Namespace;
 import org.stjs.javascript.functions.Callback0;
 import org.stjs.javascript.functions.Callback1;
 
-@Namespace("ReactToolbox")
+@Namespace("ReactToolboxProps")
 public class ListCheckboxProps extends Props {
     public ListCheckboxProps(String key) {
         super(key);

@@ -3,7 +3,7 @@ package com.vg.rt;
 import org.stjs.javascript.annotation.Namespace;
 import org.stjs.javascript.functions.Callback1;
 
-@Namespace("ReactToolbox")
+@Namespace("ReactToolboxProps")
 public class AutocompleteProps extends Props {
     public AutocompleteProps(String key) {
         super(key);

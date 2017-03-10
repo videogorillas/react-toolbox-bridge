@@ -1,8 +1,10 @@
 package com.vg.rt;
 
+import org.stjs.javascript.annotation.Namespace;
 import org.stjs.javascript.functions.Callback0;
 import org.stjs.javascript.functions.Callback1;
 
+@Namespace("ReactToolboxProps")
 public class CheckboxProps extends Props {
 
     boolean checked; //false	Value for the checkbox, can be true or false.String className;	String	''	Sets a class to give customized styles to the checkbox field.

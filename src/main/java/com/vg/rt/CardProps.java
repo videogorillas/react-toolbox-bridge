@@ -4,7 +4,7 @@ import org.stjs.javascript.Array;
 import org.stjs.javascript.annotation.Namespace;
 import org.stjs.javascript.functions.Callback0;
 
-@Namespace("ReactToolbox")
+@Namespace("ReactToolboxProps")
 public class CardProps extends Props {
     public CardProps(String key) {
         super(key);
