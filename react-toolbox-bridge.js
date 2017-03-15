@@ -1145,11 +1145,11 @@ ReactToolboxProps.ProgressBarProps = stjs.extend(ReactToolboxProps.ProgressBarPr
     constructor.LINEAR = "linear";
     constructor.CIRCULAR = "circular";
 }, {buffer: "Number", max: "Number", min: "Number", value: "Number", style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.ListProps = function(key) {
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.ListProps = function(key) {
     ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.ListProps = stjs.extend(ReactToolbox.ListProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
+ReactToolboxProps.ListProps = stjs.extend(ReactToolboxProps.ListProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     /**
      *  If true, each element in the list will have a ripple effect on click
      *  
@@ -1245,7 +1245,7 @@ ReactToolboxProps.TableProps = stjs.extend(ReactToolboxProps.TableProps, ReactTo
      *  Array of objects representing each item to show.
      */
     prototype.source = null;
-}, {model: {name: "Map", arguments: [null, "ReactToolbox.Type"]}, onChange: {name: "Callback3", arguments: [null, null, "Object"]}, onSelect: {name: "Callback1", arguments: [{name: "Array", arguments: [null]}]}, selected: {name: "Array", arguments: [null]}, source: {name: "Array", arguments: ["T"]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
+}, {model: {name: "Map", arguments: [null, "ReactToolboxProps.Type"]}, onChange: {name: "Callback3", arguments: [null, null, "Object"]}, onSelect: {name: "Callback1", arguments: [{name: "Array", arguments: [null]}]}, selected: {name: "Array", arguments: [null]}, source: {name: "Array", arguments: ["T"]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
 stjs.ns("ReactToolboxProps");
 ReactToolboxProps.CheckboxProps = function(key) {
     ReactToolboxProps.Props.call(this, key);
@@ -1868,11 +1868,11 @@ ReactToolboxProps.NavDrawerProps = stjs.extend(ReactToolboxProps.NavDrawerProps,
      */
     prototype.onOverlayClick = null;
 }, {onOverlayClick: {name: "Callback1", arguments: ["DOMEvent"]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
-stjs.ns("ReactToolbox");
-ReactToolbox.MenuProps = function(key) {
+stjs.ns("ReactToolboxProps");
+ReactToolboxProps.MenuProps = function(key) {
     ReactToolboxProps.Props.call(this, key);
 };
-ReactToolbox.MenuProps = stjs.extend(ReactToolbox.MenuProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
+ReactToolboxProps.MenuProps = stjs.extend(ReactToolboxProps.MenuProps, ReactToolboxProps.Props, [], function(constructor, prototype) {
     prototype.active = null;
     prototype.onHide = null;
     prototype.onSelect = null;
@@ -2140,7 +2140,7 @@ ReactToolboxProps.DropdownProps = stjs.extend(ReactToolboxProps.DropdownProps, R
         this.auto = auto;
         return this;
     };
-}, {source: {name: "Array", arguments: [{name: "ReactToolbox.Option", arguments: ["Object"]}]}, template: {name: "Function0", arguments: [null]}, onChange: {name: "Callback1", arguments: [null]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
+}, {source: {name: "Array", arguments: [{name: "ReactToolboxProps.Option", arguments: ["Object"]}]}, template: {name: "Function0", arguments: [null]}, onChange: {name: "Callback1", arguments: [null]}, style: {name: "Map", arguments: [null, "Object"]}}, {});
 stjs.ns("ReactToolboxProps");
 ReactToolboxProps.NavigationProps = function(key) {
     ReactToolboxProps.Props.call(this, key);
