@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.vg</groupId>
     <artifactId>react-toolbox-bridge</artifactId>
-    <version>1.2.1-8</version>
+    <version>1.2.1-10</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

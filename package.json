@@ -1,6 +1,6 @@
 {
   "name": "react-toolbox-bridge",
-  "version": "1.2.1-9",
+  "version": "1.2.1-10",
   "description": "react-toolbox stjs props",
   "main": "react-toolbox-bridge.js",
   "scripts": {
