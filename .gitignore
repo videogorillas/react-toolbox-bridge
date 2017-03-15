@@ -3,5 +3,8 @@
 .classpath
 .settings
 *.swp
+.idea
+*.iml
+*.log
 
 node_modules
