@@ -999,6 +999,7 @@ stjs.getField=function(obj, field){
 	return obj[field];
 };
 
+var ReactToolboxProps = {};
 stjs.ns("ReactToolboxProps");
 ReactToolboxProps.Props = function(key) {
     this.key = key;
@@ -2479,3 +2480,5 @@ ReactToolboxProps.AvatarProps = stjs.extend(ReactToolboxProps.AvatarProps, React
     };
 }, {icon: "Object", image: "Object", theme: "Object", style: {name: "Map", arguments: [null, "Object"]}}, {});
 //# sourceMappingURL=react-toolbox-bridge.map
+module.exports = ReactToolboxProps;
+
