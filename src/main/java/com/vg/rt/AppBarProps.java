@@ -1,6 +1,8 @@
 package com.vg.rt;
 
 import org.stjs.javascript.annotation.Namespace;
+import org.stjs.javascript.dom.DOMEvent;
+import org.stjs.javascript.functions.Callback1;
 
 @Namespace("ReactToolboxProps")
 public class AppBarProps extends Props {
@@ -29,6 +31,56 @@ public class AppBarProps extends Props {
      * @default false
      */
     public boolean flat;
+
+    /**
+     * 	Title used for the appbar.
+     * 	@default null
+     */
+    public String title;
+
+    /**
+     * Appbar left icon
+     * 
+     * @default Element
+     */
+    public String leftIcon;
+
+    /**
+     * Called on left icon click event
+     * @default null
+     */
+    public Callback1<DOMEvent> onLeftIconClick;
+
+    /**
+     * Right icon.
+     * @default null
+     */
+    public String rightIcon;
+
+    /**
+     * 	Called on right icon click event
+     * 	@default null
+     */
+    public Callback1<DOMEvent> onRightIconClick;
+
+    /**
+     * Whether AppBar should be hidden during scroll
+     * @default false
+     */
+    public boolean scrollHide;
+
+
+    public void setLeftIcon(String leftIcon) {
+        this.leftIcon = leftIcon;
+    }
+
+    public void setRightIcon(String rightIcon) {
+        this.rightIcon = rightIcon;
+    }
+
+    public void setScrollHide(boolean scrollHide) {
+        this.scrollHide = scrollHide;
+    }
 
     public AppBarProps setFixed(boolean fixed) {
         this.fixed = fixed;
