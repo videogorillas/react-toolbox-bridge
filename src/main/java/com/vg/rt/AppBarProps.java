@@ -70,16 +70,19 @@ public class AppBarProps extends Props {
     public boolean scrollHide;
 
 
-    public void setLeftIcon(String leftIcon) {
+    public AppBarProps setLeftIcon(String leftIcon) {
         this.leftIcon = leftIcon;
+        return this;
     }
 
-    public void setRightIcon(String rightIcon) {
+    public AppBarProps setRightIcon(String rightIcon) {
         this.rightIcon = rightIcon;
+        return this;
     }
 
-    public void setScrollHide(boolean scrollHide) {
+    public AppBarProps setScrollHide(boolean scrollHide) {
         this.scrollHide = scrollHide;
+        return this;
     }
 
     public AppBarProps setFixed(boolean fixed) {
