@@ -122,6 +122,11 @@ public class InputProps extends Props {
         return this;
     }
 
+    public InputProps setHint(String hint) {
+        this.hint = hint;
+        return this;
+    }
+
     public InputProps setDisabled(boolean disabled) {
         this.disabled = disabled;
         return this;
